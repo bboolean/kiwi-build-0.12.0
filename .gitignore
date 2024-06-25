@@ -1,0 +1,16 @@
+.env
+node_modules/
+.parcel-cache
+dist
+projects/
+*.wasm
+data/
+*.traineddata
+spreadsheets
+build/
+private_examples/
+cache/
+env.js
+env.kw
+files/
+server_files/
