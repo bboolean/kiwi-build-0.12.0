@@ -1,0 +1,87 @@
+a (:
+  (range 0 100)
+  (each 
+    (# n
+      [
+        {
+          padding 1
+          border 1
+        }
+        'what (n)'
+      ]
+    )
+  )
+)
+
+n 1
+
+nice (:
+  (repeat ['Nice' 'A long word'] 100)
+)
+
+
+other (:
+  'Directory entries returned by this function are in no particular order as provided by the operating system\'s underlying directory mechanisms. Entries added or removed while iterating over the directory might not be included in the iteration results.'
+  (split ' ')
+  (.4 'what')
+)
+
+  ;; [
+  ;;     { border 1 }
+  ;;     'First'
+  ;;   ]
+  ;;   [
+  ;;     { border 1 }
+  ;;     '[this is a test for testing 1]'
+  ;;   ]
+  ;;   [
+  ;;     { border 1 }
+  ;;     '[this is a test for testing 1]'
+  ;;   ]
+  ;;   [
+  ;;     { border 1 }
+  ;;     '[this is a test for testing 1]'
+  ;;   ]
+
+$view (# 
+  [
+    { padding 1 gap 1 type 'hz' border 1 }
+    [
+      { border 1 h 10 w 10 padding 1  corners 20  }
+      'First'
+    ]
+    [
+      { border 1 padding 1 corners 20 }
+      '[this is a test for testing 1]'
+    ]
+    [
+      { border 1 padding 1 corners 20 }
+      '[this is a test for testing 1]'
+    ]
+   [
+    { padding 1 gap 1 type 'hz' border 1 }
+    [
+      { border 1 h 10 w 10 padding 1  corners 20  }
+      'First'
+    ]
+    [
+      { border 1 padding 1 corners 20 type 'vt_content' }
+      '[this is a test for testing 1]'
+      'what'
+      'what'
+      'what'
+      'what'
+    ]
+    [
+      { border 1 padding 1 corners 20 }
+      '[this is a test for testing 1]'
+    ]
+    [
+      { border 1 padding 1 corners 20 }
+      '[this is a test for testing 1]'
+    ]
+  ]
+  ]
+)
+
+a
