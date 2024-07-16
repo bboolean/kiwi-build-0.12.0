@@ -604,13 +604,31 @@ window.onresize = function() {
     view();
 };
 window.addEventListener("click", ({ clientX, clientY })=>{
-    for (let block of globalThis.blocks)// tap(block);
-    if (clientX >= block.x && clientX <= block.x + block.w && clientY >= block.y && clientY <= block.y + block.h) {
-        $.value.$$$click = (0, _coreJs.mapType)((0, _coreJs.compute)(block?.options?.click));
-        // tap($);
-        (0, _coreJs.setState)($);
-        break;
-    }
+    (0, _coreJs.runEvent)({
+        event: "click",
+        args: [
+            (0, _coreJs.numberType)(clientX),
+            (0, _coreJs.numberType)(clientY)
+        ],
+        auth: "what",
+        type: "local_user"
+    });
+// for (let block of globalThis.blocks) {
+//   // tap(block);
+//   if (
+//     clientX >= block.x &&
+//     clientX <= block.x + block.w &&
+//     clientY >= block.y &&
+//     clientY <= block.y + block.h
+//   ) {
+//     $.value.$$$click = mapType(
+//       compute(block?.options?.click)
+//     );
+//     // tap($);
+//     setState($);
+//     break;
+//   }
+// }
 });
 globalThis.blocks = [];
 const drawBlock = ({ type, x, y, w, h, value, options, adjust })=>{
@@ -2903,7 +2921,7 @@ const getValue = ($1, path)=>{
 };
 const runEvent = async (eventBlock)=>{
     const { event, args, path, auth, type } = eventBlock;
-    tap("EVENT:", event);
+    // globalThis.document && console.info('EVENT:', event);
     if (mod?.value?.["$" + event] && "local_user" === type) $ = compute(parensType([
         mod?.value?.["$" + event],
         $,
@@ -3085,7 +3103,6 @@ const run = async (text)=>{
         });
     });
     $.value.system = mapType({});
-    tap("START");
     let remoteId = 0;
     socket?.onAny?.((event, args, auth, cb)=>{
         tap("INCOMING_EVENT:", event, args);
